@@ -56,7 +56,7 @@ export class ClientController {
         let clientToRemove = await this.ClientRepository.findOneBy({ id })
 
         if (!clientToRemove) {
-            return "Este usuário não existe!!!"
+            return "Este cliente não existe!!!"
         }
 
         await this.ClientRepository.remove(clientToRemove)
