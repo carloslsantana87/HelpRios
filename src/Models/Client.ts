@@ -3,7 +3,7 @@ import "reflect-metadata"
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
-export class User {
+export class Client {
 
     @PrimaryGeneratedColumn()
     id: number
@@ -11,22 +11,22 @@ export class User {
     @Column({ type: "varchar" })
     tipo:  string
 
-    @Column({ type: "bigInt" })
+    @Column({ type: "bigint" })
     cpf:  number
 
-    @Column({ type: "bigInt" })
+    @Column({ type: "bigint" })
     cnpj:  number
 
     @Column({ type: "varchar" })
     nome_razao:  string
     
-    @Column({ type: "Int" })
+    @Column({ type: "int" })
     cep:  number
 
     @Column({ type: "varchar" })
     logradouro:  string
 
-    @Column({ type: "Int" })
+    @Column({ type: "int" })
     numero:  number
 
     @Column({ type: "varchar" })
