@@ -3,7 +3,7 @@ import "reflect-metadata"
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
-export class User {
+export class Systems {
 
     @PrimaryGeneratedColumn()
     id: number
@@ -16,5 +16,8 @@ export class User {
 
     @Column({ type: "int" })
     age: number
+
+    @ManyToOne(() => User, (user) => user.photos)
+    user: User
 
 }

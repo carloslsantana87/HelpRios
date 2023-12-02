@@ -1,20 +1,22 @@
 import { CharacterEncoding } from "crypto"
 import "reflect-metadata"
+import { Systems } from "./Systems"
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
-export class User {
+export class Requests_clients {
 
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({ type: "varchar" })
-    firstName:  string
-
-    @Column({ type: "varchar" })
-    lastName: string
-
     @Column({ type: "int" })
-    age: number
+    id_client:  number
+
+    @Column({ type: "datetime" })
+    data_abertura: Date
+
+    @OneToMany(() => Systems, (systems) => Systems.Requests_clients)
+    photos: Systems[]
+
 
 }
