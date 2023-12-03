@@ -3,12 +3,12 @@ import { RequestCliController } from "../controller/RequestCliController"
 
 export const Routes = [{
     method: "get",
-    route: "/RequestClient",
+    route: "/Chamados",
     controller: RequestCliController,
     action: "all"
 }, {
     method: "get",
-    route: "/RequestClient/:id",
+    route: "/Chamados/:id",
     controller: RequestCliController,
     action: "one"
 }, {

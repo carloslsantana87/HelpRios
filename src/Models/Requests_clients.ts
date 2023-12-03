@@ -3,7 +3,7 @@ import "reflect-metadata"
 import { Request_items } from "./Request_items"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 
-@Entity()
+@Entity('Chamados')
 export class Requests_clients {
 
     @PrimaryGeneratedColumn()
