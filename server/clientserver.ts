@@ -2,9 +2,9 @@
 import express from 'express'
 import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
-import { AppDataSource } from "./src/db/data-source"
-import { Routes } from "./src/Routes/Clientroutes"
-import { Client } from "./src/Models/Client"
+import { AppDataSource } from "../src/db/data-source"
+import { Routes } from "../src/Routes/Clientroutes"
+import { Client } from "../src/Models/Client"
 
 AppDataSource.initialize().then(async () => {
 

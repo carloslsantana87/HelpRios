@@ -2,7 +2,7 @@
 import express from 'express'
 import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
-import { AppDataSource } from "./src/db/data-source"
+import { AppDataSource } from "../src/db/data-source"
 import { Routes } from "./routes"
 import { User } from "./entity/User"
 

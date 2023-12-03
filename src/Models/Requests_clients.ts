@@ -1,7 +1,7 @@
 import { CharacterEncoding } from "crypto"
 import "reflect-metadata"
 import { Request_items } from "./Request_items"
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 
 @Entity()
 export class Requests_clients {
@@ -15,7 +15,7 @@ export class Requests_clients {
     @Column({ type: "datetime" })
     data_abertura: Date
 
-    @OneToMany(() => Request_items, (items) => items.Requests_clients)
+    @OneToMany(() => Request_items, (items) => items.clients)
     items: Request_items[]
 
 

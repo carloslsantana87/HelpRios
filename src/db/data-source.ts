@@ -2,6 +2,7 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "../Models/User"
 import { Client } from "../Models/Client"
+import { Requests_clients } from "../Models/Requests_clients"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -12,7 +13,7 @@ export const AppDataSource = new DataSource({
     database: "helprios",
     synchronize: true,
     logging: true,
-    entities: [User,Client],
+    entities: [User, Client, Requests_clients],
     migrations: [],
     subscribers: [],
 })
