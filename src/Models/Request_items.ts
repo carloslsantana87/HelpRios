@@ -15,7 +15,6 @@ export class Request_items {
     @Column({ type: "varchar" })
     ocorrencia: string
 
-    @ManyToOne(() => Requests_clients, (requis) => requis.items)
-    requis: Requests_clients
-
+    @ManyToOne(() => Requests_clients, (requests_clients) => requests_clients.requisItem)
+    requests_clients: Requests_clients
 }

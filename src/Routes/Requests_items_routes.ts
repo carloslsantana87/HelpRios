@@ -3,22 +3,22 @@ import { RequestItemsController } from "../controller/RequestItemsController"
 
 export const Routesi = [{
     method: "get",
-    route: "/client",
+    route: "/RequestItem",
     controller: RequestItemsController,
     action: "all"
 }, {
     method: "get",
-    route: "/client/:id",
+    route: "/RequestItem/:id",
     controller: RequestItemsController,
     action: "one"
 }, {
     method: "post",
-    route: "/client",
+    route: "/RequestItem",
     controller: RequestItemsController,
     action: "save"
 }, {
     method: "delete",
-    route: "/client/:id",
+    route: "/RequestItem/:id",
     controller: RequestItemsController,
     action: "remove"
 }]

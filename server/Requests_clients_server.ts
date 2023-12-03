@@ -7,6 +7,7 @@ import { Routes } from "../src/Routes/Requests_clients_routes"
 import { Routesi } from "../src/Routes/Requests_items_routes"
 import { Requests_clients } from "../src/Models/Requests_clients"
 import { Request_items} from "../src/Models/Request_items"
+import { timeStamp } from 'console';
 
 
 AppDataSource.initialize().then(async () => {
@@ -59,8 +60,9 @@ AppDataSource.initialize().then(async () => {
     await AppDataSource.manager.save(
         AppDataSource.manager.create(Requests_clients,{     
             id_client: 1,  
-            data_abertura: "02/12/2023", 
-            items: [item1,item2]
+            data_abertura: '2023-12-03',
+            requisItem: [item1,item2]
+                       
         })
     )
 

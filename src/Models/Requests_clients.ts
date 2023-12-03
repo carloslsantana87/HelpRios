@@ -12,11 +12,10 @@ export class Requests_clients {
     @Column({ type: "int" })
     id_client:  number
 
-    @Column({ type: "datetime" })
+    @Column({ type: "date" })
     data_abertura: Date
 
-    @OneToMany(() => Request_items, (requisItem) => requisItem.requis)
-    items: Request_items[]
-
+    @OneToMany(() => Request_items, (requisItem) => requisItem.requests_clients)
+    requisItem: Request_items[]
 
 }
