@@ -10,12 +10,15 @@ export class Request_items {
     id: number
 
     @Column({ type: "int" })
+    id_resquests:  number
+
+    @Column({ type: "int" })
     id_system:  number
 
     @Column({ type: "varchar" })
     ocorrencia: string
 
-    @ManyToOne(() => Requests_clients, (clients) => clients.items)
-    clients: Requests_clients
+    @ManyToOne(() => Requests_clients, (requests_clients) => requests_clients.id)
+    requests_clients: Requests_clients
 
 }
