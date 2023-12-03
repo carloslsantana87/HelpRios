@@ -1,6 +1,7 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Requests_clients } from '../Models/Requests_clients';
+import { Request_items } from '../Models/Request_items';
 
 export class RequestCliController {
 
@@ -42,12 +43,12 @@ export class RequestCliController {
         let requestsToRemove = await this.Request_ClientsRepository.findOneBy({ id })
 
         if (!requestsToRemove) {
-            return "Este cliente não existe!!!"
+            return "Esta requisição não existe!!!"
         }
 
         await this.Request_ClientsRepository.remove(requestsToRemove)
 
-        return "O cliente foi removido!!!"
+        return "A requisição foi removida!!!"
     }
 
 }

@@ -3,6 +3,7 @@ import { DataSource } from "typeorm"
 import { User } from "../Models/User"
 import { Client } from "../Models/Client"
 import { Requests_clients } from "../Models/Requests_clients"
+import { Request_items } from "../Models/Request_items"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -13,7 +14,7 @@ export const AppDataSource = new DataSource({
     database: "helprios",
     synchronize: true,
     logging: true,
-    entities: [User, Client, Requests_clients],
+    entities: [User, Client, Requests_clients, Request_items],
     migrations: [],
     subscribers: [],
 })

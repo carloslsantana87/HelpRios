@@ -6,7 +6,7 @@ import { AppDataSource } from '../src/db/data-source';
 import { Routes } from "../src/Routes/Requests_clients_routes"
 import { Requests_clients } from "../src/Models/Requests_clients"
 import { Request_items} from "../src/Models/Request_items"
-import { strict } from 'assert';
+
 
 AppDataSource.initialize().then(async () => {
 
@@ -42,9 +42,12 @@ AppDataSource.initialize().then(async () => {
           await AppDataSource.manager.save(item2);
     
     await AppDataSource.manager.save(
-        AppDataSource.manager.create(Requests_clients, {         
+        AppDataSource.manager.create(Requests_clients, { 
+            
+            
             id_client: 1,  
-            data_abertura: "02/12/2023",     
+            data_abertura: "02/12/2023", 
+            ocorrencia: "NÃO EMITE NOTA FISCAL",  
             items: [item1,item2]
 
             
