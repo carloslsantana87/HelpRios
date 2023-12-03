@@ -17,7 +17,4 @@ export class Systems {
     @Column({ type: "int" })
     age: number
 
-    @ManyToOne(() => User, (user) => user.photos)
-    user: User
-
 }
