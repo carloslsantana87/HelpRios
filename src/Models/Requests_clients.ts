@@ -15,7 +15,7 @@ export class Requests_clients {
     @Column({ type: "date" })
     data_abertura: Date
 
-    @OneToMany(() => Request_items, (requisItem) => requisItem.requests_clients)
+    @OneToMany(() => Request_items, (requisItem) => requisItem.requests_clients, { eager: true})
     requisItem: Request_items[]
 
 }
