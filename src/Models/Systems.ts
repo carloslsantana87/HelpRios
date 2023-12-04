@@ -9,12 +9,11 @@ export class Systems {
     id: number
 
     @Column({ type: "varchar" })
-    firstName:  string
+    nome:  string
 
     @Column({ type: "varchar" })
-    lastName: string
+    descricao: string
 
-    @Column({ type: "int" })
-    age: number
+    
 
 }
