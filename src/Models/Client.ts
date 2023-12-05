@@ -1,6 +1,7 @@
 import { CharacterEncoding } from "crypto"
 import "reflect-metadata"
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
+import { Address } from "./Address"; // Importando a classe Address
 
 @Entity()
 export class Client {
@@ -9,54 +10,39 @@ export class Client {
     id: number
 
     @Column({ type: "varchar" })
-    tipo:  string
+    tipo: string
 
     @Column({ type: "bigint" })
-    cpf:  number
+    cpf: number
 
     @Column({ type: "bigint" })
-    cnpj:  number
+    cnpj: number
 
     @Column({ type: "varchar" })
-    nome_razao:  string
+    nome_razao: string
     
-    @Column({ type: "int" })
-    cep:  number
+    @OneToOne(type => Address, { //: Cria um relacionamento OneToOne com a classe Address.
+        cascade: true, // Aqui o endereço é salvo junto com o cliente
+        eager: true // Aqui o endereço é carregado automaticamente ao carregar o cliente
+    })
+    @JoinColumn() // Utiliza a coluna endereco para armazenar a instância da classe Address
+    endereco: Address
 
     @Column({ type: "varchar" })
-    logradouro:  string
-
-    @Column({ type: "int" })
-    numero:  number
+    nome_responsavel: string
 
     @Column({ type: "varchar" })
-    complemento:  string
+    fone_responsavel: string
 
     @Column({ type: "varchar" })
-    bairro:  string
+    nome_contato_1: string
 
     @Column({ type: "varchar" })
-    cidade:  string
+    fone_contato_1: string
 
     @Column({ type: "varchar" })
-    uf:  string
+    nome_contato_2: string
 
     @Column({ type: "varchar" })
-    nome_responsavel:  string
-
-    @Column({ type: "varchar" })
-    fone_responsavel:  string
-
-    @Column({ type: "varchar" })
-    nome_contato_1:  string
-
-    @Column({ type: "varchar" })
-    fone_contato_1:  string
-
-    @Column({ type: "varchar" })
-    nome_contato_2:  string
-
-    @Column({ type: "varchar" })
-    fone_contato_2:  string
-
+    fone_contato_2: string
 }
