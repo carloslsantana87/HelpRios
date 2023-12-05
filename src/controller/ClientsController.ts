@@ -25,20 +25,14 @@ export class ClientController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        const { tipo, cpf, cnpj, nome_razao, cep, logradouro, numero, complemento, bairro, cidade, uf, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2 } = request.body;
+        const { tipo, cpf, cnpj, nome_razao, endereco, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2 } = request.body;
 
         const client = Object.assign(new Client(), {
             tipo, 
             cpf, 
             cnpj, 
             nome_razao, 
-            cep, 
-            logradouro,
-            numero,   
-            complemento, 
-            bairro,     
-            cidade, 
-            uf,     
+            endereco,     
             nome_responsavel,     
             fone_responsavel, 
             nome_contato_1, 
