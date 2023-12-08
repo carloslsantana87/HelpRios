@@ -29,7 +29,7 @@ AppDataSource.initialize().then(async () => {
         })
     })
 
-    /*Routesi.forEach(route => {
+    Routesi.forEach(route => {
         (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
             const result = (new (route.controller as any))[route.action](req, res, next)
             if (result instanceof Promise) {
@@ -39,7 +39,7 @@ AppDataSource.initialize().then(async () => {
                 res.json(result)
             }
         })
-    })*/
+    })
 
     // setup express app here
     // ...

@@ -1,24 +1,24 @@
 
-import { RequestItemsController } from "../controller/RequestItemsController"
+import { RequestItemController } from "../controller/RequestItemsController"
 
 export const Routesi = [{
     method: "get",
     route: "/RequestItem",
-    controller: RequestItemsController,
+    controller: RequestItemController,
     action: "all"
 }, {
     method: "get",
     route: "/RequestItem/:id",
-    controller: RequestItemsController,
+    controller: RequestItemController,
     action: "one"
 }, {
     method: "post",
     route: "/RequestItem",
-    controller: RequestItemsController,
+    controller: RequestItemController,
     action: "save"
 }, {
     method: "delete",
     route: "/RequestItem/:id",
-    controller: RequestItemsController,
+    controller: RequestItemController,
     action: "remove"
 }]
