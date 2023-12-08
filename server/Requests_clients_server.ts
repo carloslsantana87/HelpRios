@@ -7,7 +7,7 @@ import { Routes } from "../src/Routes/Requests_clients_routes"
 import { Routesi } from "../src/Routes/Requests_items_routes"
 import { Requests_clients } from "../src/Models/Requests_clients"
 import { Request_items} from "../src/Models/Request_items"
-import { timeStamp } from 'console';
+
 
 
 AppDataSource.initialize().then(async () => {
@@ -29,7 +29,7 @@ AppDataSource.initialize().then(async () => {
         })
     })
 
-    Routesi.forEach(route => {
+    /*Routesi.forEach(route => {
         (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
             const result = (new (route.controller as any))[route.action](req, res, next)
             if (result instanceof Promise) {
@@ -39,7 +39,7 @@ AppDataSource.initialize().then(async () => {
                 res.json(result)
             }
         })
-    })
+    })*/
 
     // setup express app here
     // ...

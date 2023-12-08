@@ -14,7 +14,7 @@ export const AppDataSource = new DataSource({
     database: "helprios",
     synchronize: true,
     logging: true,
-    entities: [User, Client, Requests_clients, Request_items],
+    entities: [Client, Requests_clients, Request_items],
     migrations: [],
     subscribers: [],
 })
