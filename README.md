@@ -1,7 +1,4 @@
-# Awesome Project Build with TypeORM
+# HelpRios
 
-Steps to run this project:
+Projeto para Atender a FAP - SOFTEX
 
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
