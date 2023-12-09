@@ -41,12 +41,12 @@ export class SystemsController {
         let systemsToRemove = await this.SystemsRepository.findOneBy({ id })
 
         if (!systemsToRemove) {
-            return "Este cliente não existe!!!"
+            return "Este sistema não existe!!!"
         }
 
         await this.SystemsRepository.remove(systemsToRemove)
 
-        return "O cliente foi removido!!!"
+        return "O Sistema foi removido!!!"
     }
 
 }
