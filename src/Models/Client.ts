@@ -19,6 +19,9 @@ export class Client {
 
     @Column({ type: "varchar" })
     nome_razao:  string
+
+    @Column({ type: "varchar" })
+    email:  string
     
     @Column({ type: "int" })
     cep:  number

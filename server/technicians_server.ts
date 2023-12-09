@@ -3,8 +3,8 @@ import express from 'express'
 import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "../src/db/data-source"
-import { Routes } from "./routes"
-import { User } from "./entity/User"
+import { Routes } from "../src/Routes/techniciansroutes"
+import { Technicians } from "../src/Models/technicians"
 
 AppDataSource.initialize().then(async () => {
 
@@ -33,18 +33,18 @@ AppDataSource.initialize().then(async () => {
 
     // insert new users for test
     await AppDataSource.manager.save(
-        AppDataSource.manager.create(User, {
-            firstName: "Timber",
-            lastName: "Saw",
-            age: 27
-        })
-    )
+        AppDataSource.manager.create(Technicians, {
+            nome:'CARLOS JOSE',
+            cpf: 2187324494,
+            cep: 50770500,
+            logradouro: "RUA FRANCISCO PORFIRIO",
+            numero: 175,   
+            complemento: "APT 305", 
+            bairro: "AFOGADOS",     
+            cidade: "RECIFE", 
+            uf: "UF",     
+            fone_contato: '81-984030906'
 
-    await AppDataSource.manager.save(
-        AppDataSource.manager.create(User, {
-            firstName: "Phantom",
-            lastName: "Assassin",
-            age: 24
         })
     )
 
