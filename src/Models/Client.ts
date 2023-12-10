@@ -1,6 +1,6 @@
-import { CharacterEncoding } from "crypto"
-import "reflect-metadata"
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import "reflect-metadata";
+import { Client_Systems } from './Client_systems';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 
 @Entity()
 export class Client {
@@ -61,5 +61,8 @@ export class Client {
 
     @Column({ type: "varchar" })
     fone_contato_2:  string
+
+    @OneToMany(() => Client_Systems, (clisystem) => clisystem. client, { eager: true})
+    clisystem: Client_Systems[]
 
 }

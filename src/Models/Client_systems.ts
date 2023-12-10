@@ -1,20 +1,20 @@
-import { CharacterEncoding } from "crypto"
 import "reflect-metadata"
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Client } from './Client';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 
 @Entity()
-export class User {
+export class Client_Systems {
 
     @PrimaryGeneratedColumn()
     id: number
 
     @Column({ type: "varchar" })
-    firstName:  string
+    nome:  string
 
     @Column({ type: "varchar" })
-    lastName: string
+    descricao: string
 
-    @Column({ type: "int" })
-    age: number
+    @ManyToOne(() => Client, (client) => client.system)
+    client: Client
 
 }
