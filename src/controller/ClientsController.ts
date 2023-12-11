@@ -2,6 +2,7 @@ import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
 
+
 export class ClientController {
 
     private ClientRepository = AppDataSource.getRepository(Client)

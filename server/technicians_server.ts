@@ -34,7 +34,7 @@ AppDataSource.initialize().then(async () => {
     // insert new users for test
     await AppDataSource.manager.save(
         AppDataSource.manager.create(Technicians, {
-            nome:'CARLOS JOSE',
+            nome:'CARLOS LUIZ',
             cpf: 2187324494,
             cep: 50770500,
             logradouro: "RUA FRANCISCO PORFIRIO",

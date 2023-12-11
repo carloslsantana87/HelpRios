@@ -47,7 +47,7 @@ AppDataSource.initialize().then(async () => {
     await AppDataSource.manager.save(
         AppDataSource.manager.create(Client, {
             tipo: "PESSOA JURIDICA", 
-            cpf: 2187324494, 
+            cpf: 2187324495, 
             cnpj: 0, 
             nome_razao: "CARLOS LUIZ DE SANTANA", 
             email: "carloslsantana87@gmail.com",
