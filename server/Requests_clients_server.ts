@@ -1,25 +1,12 @@
 //import * as express from "express"
-import express from 'express'
-import * as bodyParser from "body-parser"
-import { Request, Response } from "express"
+import express from 'express';
+import * as bodyParser from "body-parser";
+import { Request, Response } from "express";
 import { AppDataSource } from '../src/db/data-source';
-import { Routes } from "../src/Routes/Requests_clients_routes"
-import { Routesi } from "../src/Routes/Requests_items_routes"
-import { Requests_clients } from "../src/Models/Requests_clients"
-import { Request_items} from "../src/Models/Request_items"
-
-// Enviar e-mail
-const nodemailer = require('nodemailer');
-
-var transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    porta: 587, 
-    secure: true,
-    auth:{
-        user: "fapsoftexprojetohelpdesk@gmail.com",
-        pass: "juox rrrt rtzo rlul"
-    }
-});
+import { Routes } from "../src/Routes/Requests_clients_routes";
+import { Routesi } from "../src/Routes/Requests_items_routes";
+import { Requests_clients } from "../src/Models/Requests_clients";
+import { Request_items} from "../src/Models/Request_items";
 
 AppDataSource.initialize().then(async () => {
 
@@ -76,9 +63,6 @@ AppDataSource.initialize().then(async () => {
         })
     )
     
-    
-
-
-    console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results")
+console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results")
 
 }).catch(error => console.log(error))

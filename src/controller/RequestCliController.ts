@@ -32,7 +32,7 @@ export class RequestCliController {
         const requests = Object.assign(new Requests_clients(), {
             id_client,  
             data_abertura, 
-            items
+            items   
         })
 
         return this.Request_ClientsRepository.save(requests)
