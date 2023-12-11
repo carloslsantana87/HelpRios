@@ -5,6 +5,8 @@ import { Request, Response } from "express"
 import { AppDataSource } from "../src/db/data-source"
 import { Routes } from "../src/Routes/Clientroutes"
 import { Client } from "../src/Models/Client"
+import { Client_Systems } from "../src/Models/Client_systems"
+
 
 AppDataSource.initialize().then(async () => {
 
@@ -31,6 +33,16 @@ AppDataSource.initialize().then(async () => {
     // start express server
     app.listen(8080)
 
+    const item1 = new Client_Systems()
+          item1.nome = "SISTEMA CONTÁBIL";  
+          item1.descricao = "SOLUÇÃO PARA CONTABILIDADE"; 
+          await AppDataSource.manager.save(item1);
+    
+    const item2 = new Client_Systems()
+          item2.nome = "SISTEMA FISCAL";  
+          item2.descricao = "SOLUÇÃO PARA EMPRESAS"; 
+          await AppDataSource.manager.save(item2);
+
     // insert new users for test
     await AppDataSource.manager.save(
         AppDataSource.manager.create(Client, {
@@ -38,6 +50,7 @@ AppDataSource.initialize().then(async () => {
             cpf: 2187324494, 
             cnpj: 0, 
             nome_razao: "CARLOS LUIZ DE SANTANA", 
+            email: "carloslsantana87@gmail.com",
             cep: 50770500, 
             logradouro: "RUA FRANCISCO PORFIRIO",
             numero: 175,   
@@ -50,7 +63,9 @@ AppDataSource.initialize().then(async () => {
             nome_contato_1: "", 
             fone_contato_1: "",     
             nome_contato_2: "",     
-            fone_contato_2: ""
+            fone_contato_2: "",
+            clisystem:[item1,item2] 
+            
         })
     )
 

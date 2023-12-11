@@ -5,6 +5,7 @@ import { Requests_clients } from "../Models/Requests_clients"
 import { Request_items } from "../Models/Request_items"
 import { Systems } from "../Models/Systems"
 import { Technicians } from "../Models/technicians"
+import { Client_Systems } from "../Models/Client_systems"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -12,10 +13,10 @@ export const AppDataSource = new DataSource({
     port: 3306,
     username: "root",
     password: "1234567",
-    database: "helprios",
+    database: "helprio",
     synchronize: true,
     logging: true,
-    entities: [Client, Requests_clients, Request_items, Systems, Technicians],
+    entities: [Client, Requests_clients, Request_items, Systems, Technicians, Client_Systems],
     migrations: [],
     subscribers: [],
 })
