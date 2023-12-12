@@ -14,7 +14,7 @@ export class Client_Systems {
     @Column({ type: "varchar" })
     descricao: string
 
-    @ManyToOne(() => Client, (client) => client.system)
+    @ManyToOne(() => Client, (client) => client.clisystem)
     client: Client
 
 }

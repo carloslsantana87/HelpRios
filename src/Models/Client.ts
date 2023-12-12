@@ -1,6 +1,8 @@
 import "reflect-metadata";
 import { Client_Systems } from './Client_systems';
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Address } from "./Adress";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+
 
 @Entity()
 export class Client {
@@ -23,27 +25,6 @@ export class Client {
     @Column({ type: "varchar" })
     email:  string
     
-    @Column({ type: "int" })
-    cep:  number
-
-    @Column({ type: "varchar" })
-    logradouro:  string
-
-    @Column({ type: "int" })
-    numero:  number
-
-    @Column({ type: "varchar" })
-    complemento:  string
-
-    @Column({ type: "varchar" })
-    bairro:  string
-
-    @Column({ type: "varchar" })
-    cidade:  string
-
-    @Column({ type: "varchar" })
-    uf:  string
-
     @Column({ type: "varchar" })
     nome_responsavel:  string
 
@@ -62,10 +43,16 @@ export class Client {
     @Column({ type: "varchar" })
     fone_contato_2:  string
 
-    @OneToMany(() => Client_Systems, (clisystem) => clisystem. client, { 
+    @OneToMany(() => Client_Systems, (clisystem) => clisystem.client, { 
         cascade: true,
         eager: true,
     })
-    clisystem: Client_Systems[]
+    clisystem: Client_Systems[];
+
+    @OneToMany(() => Address, (addressCli) => addressCli.client, { 
+        cascade: true,
+        eager: true,
+    })
+    addressCli: Address[];
 
 }

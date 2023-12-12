@@ -5,6 +5,7 @@ import { Request, Response } from "express"
 import { AppDataSource } from "../src/db/data-source"
 import { Routes } from "../src/Routes/Clientroutes"
 import { Client } from "../src/Models/Client"
+import { Address } from '../src/Models/Adress';
 import { Client_Systems } from "../src/Models/Client_systems"
 
 
@@ -34,14 +35,24 @@ AppDataSource.initialize().then(async () => {
     app.listen(3000)
 
     const item1 = new Client_Systems()
-          item1.nome = "SISTEMA CONTÁBIL";  
-          item1.descricao = "SOLUÇÃO PARA CONTABILIDADE"; 
+          item1.nome = "SISTEMA CONTÁBIL",  
+          item1.descricao = "SOLUÇÃO PARA CONTABILIDADE", 
           await AppDataSource.manager.save(item1);
     
     const item2 = new Client_Systems()
-          item2.nome = "SISTEMA FISCAL";  
-          item2.descricao = "SOLUÇÃO PARA EMPRESAS"; 
+          item2.nome = "SISTEMA FISCAL",  
+          item2.descricao = "SOLUÇÃO PARA EMPRESAS", 
           await AppDataSource.manager.save(item2);
+
+    const item3 = new Address()
+        item3.cep = "50770500", 
+        item3.logradouro = "RUA FRANCISCO PORFIRIO",
+        item3.numero = 175,   
+        item3.complemento = "APT 305", 
+        item3.bairro = "AFOGADOS",     
+        item3.cidade = "RECIFE", 
+        item3.uf = "UF",  
+        await AppDataSource.manager.save(item3);
 
     // insert new users for test
     await AppDataSource.manager.save(
@@ -50,21 +61,15 @@ AppDataSource.initialize().then(async () => {
             cpf: 2187324495, 
             cnpj: 0, 
             nome_razao: "CARLOS LUIZ DE SANTANA", 
-            email: "carloslsantana87@gmail.com",
-            cep: 50770500, 
-            logradouro: "RUA FRANCISCO PORFIRIO",
-            numero: 175,   
-            complemento: "APT 305", 
-            bairro: "AFOGADOS",     
-            cidade: "RECIFE", 
-            uf: "UF",     
+            email: "carloslsantana87@gmail.com",  
             nome_responsavel: "CARLOS LUIZ DE SANTANA",     
             fone_responsavel: "81-98403-0906", 
             nome_contato_1: "", 
             fone_contato_1: "",     
             nome_contato_2: "",     
             fone_contato_2: "",
-            clisystem:[item1,item2] 
+            clisystem:[item1,item2],
+            addressCli: [item3] 
             
         })
     )

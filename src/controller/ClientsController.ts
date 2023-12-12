@@ -1,6 +1,7 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
+import { Address } from '../Models/Adress';
 
 
 export class ClientController {
@@ -25,8 +26,8 @@ export class ClientController {
         return client
     }
 
-    async save(request: Request, response: Response, next: NextFunction) {
-        const { tipo, cpf, cnpj, email, nome_razao, cep, logradouro, numero, complemento, bairro, cidade, uf, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem } = request.body;
+    async create(request: Request, response: Response, next: NextFunction) {
+        const { tipo, cpf, cnpj, email, nome_razao, cep, logradouro, numero, complemento, bairro, cidade, uf, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, AddressCli} = request.body;
 
         const client = Object.assign(new Client(), {
             tipo, 
@@ -48,6 +49,7 @@ export class ClientController {
             nome_contato_2,     
             fone_contato_2,
             clisystem,
+            AddressCli,
         })
 
         return this.ClientRepository.save(client)
