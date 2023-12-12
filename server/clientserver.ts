@@ -31,7 +31,7 @@ AppDataSource.initialize().then(async () => {
     // ...
 
     // start express server
-    app.listen(8080)
+    app.listen(3000)
 
     const item1 = new Client_Systems()
           item1.nome = "SISTEMA CONTÁBIL";  
