@@ -15,7 +15,7 @@ export const Routes = [{
     method: "post",
     route: "/RequestClient",
     controller: RequestCliController,
-    action: "save"
+    action: "create"
 }, {
     method: "delete",
     route: "/RequestClient/:id",
