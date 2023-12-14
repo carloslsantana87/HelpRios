@@ -3,13 +3,6 @@ import express from 'express'
 import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./db/data-source"
-/*import { Client } from "./src/Models/Client"
-import { Address } from './src/Models/Adress';
-import { Client_Systems } from "./src/Models/Client_systems"
-import { Technicians } from "./src/Models/technicians"
-import { Systems } from "./src/Models/Systems"
-import { Requests_clients } from "./src/Models/Requests_clients"
-import { Request_items } from "./src/Models/Request_items"*/
 import { Routes as Requests_clients_routes } from "./Routes/Requests_clients_routes"
 import { Routes as Clientroutes } from "./Routes/Clientroutes"
 import { Routes as Systemsroutes} from "./Routes/Systemsroutes"
