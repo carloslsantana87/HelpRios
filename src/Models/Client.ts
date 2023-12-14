@@ -43,16 +43,14 @@ export class Client {
     @Column({ type: "varchar" })
     fone_contato_2:  string
 
-    @OneToMany(() => Client_Systems, (clisystem) => clisystem.client, { 
+    @OneToMany(() => Address, (addressCli) => addressCli.clientAdress, { 
         cascade: true,
         eager: true,
     })
-    clisystem: Client_Systems[];
+    addressCli: Address[]
 
-    @OneToMany(() => Address, (addressCli) => addressCli.client, { 
-        cascade: true,
-        eager: true,
-    })
-    addressCli: Address[];
+    
+
+    
 
 }

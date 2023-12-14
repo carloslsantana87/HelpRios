@@ -69,7 +69,7 @@ AppDataSource.initialize().then(async () => {
             nome_contato_2: "",     
             fone_contato_2: "",
             clisystem:[item1,item2],
-            addressCli: [item3] 
+            addressCli: [item3],
             
         })
     )

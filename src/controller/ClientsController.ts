@@ -27,21 +27,14 @@ export class ClientController {
     }
 
     async create(request: Request, response: Response, next: NextFunction) {
-        const { tipo, cpf, cnpj, email, nome_razao, cep, logradouro, numero, complemento, bairro, cidade, uf, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, AddressCli} = request.body;
+        const { tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, AddressCli} = request.body;
 
         const client = Object.assign(new Client(), {
             tipo, 
             cpf, 
             cnpj, 
             nome_razao, 
-            email,
-            cep, 
-            logradouro,
-            numero,   
-            complemento, 
-            bairro,     
-            cidade, 
-            uf,     
+            email, 
             nome_responsavel,     
             fone_responsavel, 
             nome_contato_1, 
@@ -49,7 +42,7 @@ export class ClientController {
             nome_contato_2,     
             fone_contato_2,
             clisystem,
-            AddressCli,
+            AddressCli
         })
 
         return this.ClientRepository.save(client)
