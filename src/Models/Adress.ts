@@ -34,6 +34,5 @@ export class Address {
     @ManyToOne(() => Client, (clientAdress) => clientAdress.addressCli)
     clientAdress: Client
 
-    @ManyToOne(() => Client, (client_Systems) => client_Systems.addressCli)
-    client_Systems: Client
+   
 }
