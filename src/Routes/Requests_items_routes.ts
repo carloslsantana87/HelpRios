@@ -1,7 +1,7 @@
 
 import { RequestItemController } from "../controller/RequestItemsController"
 
-export const Routesi = [{
+export const Routes = [{
     method: "get",
     route: "/RequestItem",
     controller: RequestItemController,
