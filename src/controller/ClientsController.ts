@@ -41,8 +41,8 @@ export class ClientController {
             fone_contato_1,     
             nome_contato_2,     
             fone_contato_2,
-            clisystem,
             AddressCli,
+            clisystem,
         })
 
         return this.ClientRepository.save(client)
