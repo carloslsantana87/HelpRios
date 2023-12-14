@@ -1,7 +1,7 @@
 import "reflect-metadata"
 import { Client } from './Client';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
-import { Client_Systems } from './Client_systems';
+
 
 
 @Entity()
@@ -31,8 +31,8 @@ export class Address {
     @Column({ type: "varchar" })
     uf: string
 
-    @ManyToOne(() => Client, (clientAdress) => clientAdress.addressCli)
-    clientAdress: Client
+    @ManyToOne(() => Client, (clientAddress) => clientAddress.addressCli)
+    client: Client
 
    
 }

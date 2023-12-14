@@ -1,7 +1,7 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
-import { Address } from '../Models/Adress';
+
 
 
 export class ClientController {
@@ -42,7 +42,7 @@ export class ClientController {
             nome_contato_2,     
             fone_contato_2,
             clisystem,
-            AddressCli
+            AddressCli,
         })
 
         return this.ClientRepository.save(client)
