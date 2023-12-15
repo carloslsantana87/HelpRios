@@ -14,7 +14,9 @@ export class Client_Systems {
     @Column({ type: "varchar" })
     descricao: string
 
-    @ManyToOne(() => Client, (systemcli) => systemcli.clisystem)
+    @ManyToOne(() => Client, (systemcli) => systemcli.clisystem, {
+        onDelete: 'CASCADE',
+    })
     client: Client
 
 }
