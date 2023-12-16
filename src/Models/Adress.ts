@@ -31,7 +31,7 @@ export class Address {
     @Column({ type: "varchar" })
     uf: string
 
-    @ManyToOne(() => Client, (clientAddress) => clientAddress.addressCli, {
+    @ManyToOne(() => Client, (clientAddress) => clientAddress.address, {
         onDelete: 'CASCADE',
     })
     client: Client

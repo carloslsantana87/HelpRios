@@ -22,11 +22,7 @@ async function initializeApp() {
             route.route,
             async (req: Request, res: Response, next: NextFunction) => {
               try {
-                const result = await new (route.controller as any)()[route.action](
-                  req,
-                  res,
-                  next
-                );
+                const result = await new (route.controller as any)()[route.action](req, res, next);
   
                 if (result !== null && result !== undefined) {
                   res.json(result);
