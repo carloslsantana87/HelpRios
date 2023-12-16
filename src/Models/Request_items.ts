@@ -15,6 +15,8 @@ export class Request_items {
     @Column({ type: "varchar" })
     ocorrencia: string
 
-    @ManyToOne(() => Requests_clients, (requests_clients) => requests_clients.requisItem)
+    @ManyToOne(() => Requests_clients, (requests_clients) => requests_clients.requisItem,{
+        onDelete: 'CASCADE',
+    })
     requests_clients: Requests_clients
 }
