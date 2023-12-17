@@ -15,6 +15,12 @@ export class Request_items {
     @Column({ type: "varchar" })
     ocorrencia: string
 
+    @Column({ type: "varchar" })
+    analysisTech: string
+
+    @Column({ type: "varchar" })
+    closerequest: string
+
     @ManyToOne(() => Requests_clients, (requests_clients) => requests_clients.requisItem,{
         onDelete: 'CASCADE',
     })
