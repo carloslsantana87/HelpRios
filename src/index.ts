@@ -8,6 +8,7 @@ import { Routes as Clientroutes } from "./Routes/Clientroutes"
 import { Routes as Systemsroutes} from "./Routes/Systemsroutes"
 import { Routes as techniciansroutes }  from "./Routes/techniciansroutes"
 
+
 async function initializeApp() {
     try {
       await AppDataSource.initialize();

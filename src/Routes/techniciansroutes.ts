@@ -1,6 +1,8 @@
 
 import { techniciansController } from "../controller/techniciansController"
 
+
+
 export const Routes = [{
     method: "get",
     route: "/technicians",

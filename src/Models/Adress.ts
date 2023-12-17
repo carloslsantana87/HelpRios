@@ -4,9 +4,10 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 
 
 
+
 @Entity()
 export class Address {
-
+    
     @PrimaryGeneratedColumn()
     id: number
 
