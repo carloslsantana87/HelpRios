@@ -45,21 +45,7 @@ export class RequestCliController {
         return this.Request_ClientsRepository.save(requests)
     }
 
-    async put(request: Request, response: Response, next: NextFunction) {
-        const  id  = parseInt(request.params.id);
-        const { situation } = request.body;
-
-        const registroExistente = await this.Request_ClientsRepository.findOne({ where: { id } });
-
-        if (!registroExistente) {
-            return "Esta requisição não existe!!!"
-        }
-
-        registroExistente.situation = situation;
-        await this.Request_ClientsRepository.save(registroExistente)
-
-    }
-
+    
     async remove(request: Request, response: Response, next: NextFunction) {
         const id = parseInt(request.params.id)
 
