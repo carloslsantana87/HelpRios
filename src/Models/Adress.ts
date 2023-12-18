@@ -34,7 +34,7 @@ export class Address {
     @ManyToOne(() => Client, (clientAddress) => clientAddress.addressCli, {
         onDelete: 'CASCADE',
     })
-    client: Client
+    clientAd: Client
 
    
 }

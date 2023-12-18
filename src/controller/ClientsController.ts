@@ -27,7 +27,7 @@ export class ClientController {
     }
 
     async create(request: Request, response: Response, next: NextFunction) {
-        const { tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, AddressCli} = request.body;
+        const { tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd} = request.body;
 
         const client = Object.assign(new Client(), {
             tipo, 
@@ -41,8 +41,8 @@ export class ClientController {
             fone_contato_1,     
             nome_contato_2,     
             fone_contato_2,
-            AddressCli,
-            clisystem,
+            clientAd,
+            clisystem,   
         })
 
         return this.ClientRepository.save(client)
