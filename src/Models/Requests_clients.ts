@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { Request_items } from "./Request_items";
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 
+
 @Entity()
 export class Requests_clients {
 
@@ -13,6 +14,9 @@ export class Requests_clients {
 
     @Column({ type: "date" })
     data_abertura: Date
+
+    @Column( {type: "varchar", default: "EM ANDAMENTO" })
+    situation: string
 
     @OneToMany(() => Request_items, (requisItem) => requisItem.requests_clients, { 
         cascade: true,

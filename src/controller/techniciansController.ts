@@ -2,6 +2,7 @@ import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Technicians } from '../Models/technicians';
 
+
 export class techniciansController {
 
     private techniciansRepository = AppDataSource.getRepository(Technicians)

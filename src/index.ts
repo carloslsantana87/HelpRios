@@ -8,6 +8,7 @@ import { Routes as Clientroutes } from "./Routes/Clientroutes"
 import { Routes as Systemsroutes} from "./Routes/Systemsroutes"
 import { Routes as techniciansroutes }  from "./Routes/techniciansroutes"
 
+
 async function initializeApp() {
     try {
       await AppDataSource.initialize();
@@ -22,11 +23,7 @@ async function initializeApp() {
             route.route,
             async (req: Request, res: Response, next: NextFunction) => {
               try {
-                const result = await new (route.controller as any)()[route.action](
-                  req,
-                  res,
-                  next
-                );
+                const result = await new (route.controller as any)()[route.action](req, res, next);
   
                 if (result !== null && result !== undefined) {
                   res.json(result);
@@ -48,7 +45,7 @@ async function initializeApp() {
       registerRoutes(Requests_clients_routes);
   
       app.listen(3000, () => {
-        console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results");
+        console.log("O servidor foi iniciado na porta 3000. Open http://localhost:3000/ to see results");
       });
     } catch (error) {
       console.error(error);
