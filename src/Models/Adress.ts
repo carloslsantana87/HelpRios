@@ -4,9 +4,10 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 
 
 
+
 @Entity()
 export class Address {
-
+    
     @PrimaryGeneratedColumn()
     id: number
 
@@ -34,7 +35,7 @@ export class Address {
     @ManyToOne(() => Client, (clientAddress) => clientAddress.address, {
         onDelete: 'CASCADE',
     })
-    client: Client
+    clientAd: Client
 
    
 }
