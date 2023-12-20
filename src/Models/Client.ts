@@ -48,7 +48,7 @@ export class Client {
         cascade: true,
         eager: true,
     })
-    address: Address[]
+    clientAd: Address[]
 
     @OneToMany(() => Client_Systems, (clisystem) => clisystem.client, { 
         cascade: true,

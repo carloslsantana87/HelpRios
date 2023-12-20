@@ -12,11 +12,7 @@ export class RequestCliController {
 
 
     async all(request: Request, response: Response, next: NextFunction) {
-        return this.Request_ClientsRepository.find({
-            relations: {
-                requisItem: false,
-            },
-        })
+        return this.Request_ClientsRepository.find()
     }
 
     async one(request: Request, response: Response, next: NextFunction) {
