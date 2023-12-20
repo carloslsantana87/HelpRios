@@ -10,7 +10,7 @@ import { Routes as techniciansroutes }  from "./Routes/techniciansroutes"
 
 
 async function initializeApp() {
-    try {
+   
       await AppDataSource.initialize();
   
       const app = express();
@@ -47,9 +47,7 @@ async function initializeApp() {
       app.listen(3000, () => {
         console.log("O servidor foi iniciado na porta 3000. Open http://localhost:3000/ to see results");
       });
-    } catch (error) {
-      console.error(error);
-    }
+    
   }
   
   initializeApp();
