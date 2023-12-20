@@ -22,7 +22,7 @@
     "start": "ts-node src/index.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   },
-  "main": "index.js",
+  "main": "index.ts",
   "author": "",
   "license": "ISC"
 }

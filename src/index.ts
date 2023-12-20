@@ -22,7 +22,7 @@ async function initializeApp() {
           (app as any)[route.method](
             route.route,
             async (req: Request, res: Response, next: NextFunction) => {
-              try {
+          
                 const result = await new (route.controller as any)()[route.action](req, res, next);
   
                 if (result !== null && result !== undefined) {
@@ -30,9 +30,6 @@ async function initializeApp() {
                 } else {
                   next();
                 }
-              } catch (error) {
-                next(error);
-              }
             }
           );
         });
