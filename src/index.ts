@@ -1,7 +1,7 @@
 //import * as express from "express"
 import express from 'express'
 import * as bodyParser from "body-parser"
-import { Request, Response } from "express"
+import { Request, Response, NextFunction } from "express"
 import { AppDataSource } from "./db/data-source"
 import { Routes as Requests_clients_routes } from "./Routes/Requests_clients_routes"
 import { Routes as Clientroutes } from "./Routes/Clientroutes"
