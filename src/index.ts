@@ -1,5 +1,5 @@
-//import * as express from "express"
-import express from 'express'
+import * as express from "express"
+//import express from 'express'
 import * as bodyParser from "body-parser"
 import { Request, Response, NextFunction } from "express"
 import { AppDataSource } from "./db/data-source"
