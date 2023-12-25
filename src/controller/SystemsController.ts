@@ -36,6 +36,25 @@ export class SystemsController {
         return this.SystemsRepository.save(client)
     }
 
+    async update(request: Request, response: Response, next: NextFunction) {
+        const  id  = parseInt(request.params.id);
+        const { nome, descricao } = request.body;
+
+        const findSystem = await this.SystemsRepository.findOneBy({ id });
+
+        if (!findSystem) {
+            return "Registro não encontrado!";
+        }
+
+        findSystem.nome = nome;
+        findSystem.descricao = descricao;
+
+        await this.SystemsRepository.save(findSystem);
+
+        return "Registro atualizado com sucesso!";
+
+    }
+
     async remove(request: Request, response: Response, next: NextFunction) {
         const id = parseInt(request.params.id)
 
