@@ -42,7 +42,7 @@ async function initializeApp() {
       registerRoutes(Requests_clients_routes);
   
       app.listen(3000, () => {
-        console.log("O servidor foi iniciado na porta 3000. Open http://localhost:3000/ to see results");
+        console.log("O servidor foi iniciado na porta 3000. Abrir http://localhost:3000/ para os resultados!");
       });
     
   }

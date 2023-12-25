@@ -26,19 +26,13 @@ export class techniciansController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        const { nome, cpf, cep, logradouro, numero, complemento, bairro, cidade, uf, fone_contato } = request.body;
+        const { nome, cpf, techAd } = request.body;
 
         const items = Object.assign(new Technicians(), { 
             nome, 
 	        cpf, 
-	        cep, 
-	        logradouro, 
-	        numero, 
-	        complemento, 
-	        bairro, 
-	        cidade, 
-	        uf, 
-	        fone_contato
+            techAd,
+	       
         })
 
         return this.techniciansRepository.save(items)

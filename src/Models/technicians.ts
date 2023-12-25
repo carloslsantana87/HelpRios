@@ -1,6 +1,6 @@
-import { CharacterEncoding } from "crypto"
+import { Addresstech } from "./Adresstech";
 import "reflect-metadata"
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 
 
 @Entity()
@@ -14,29 +14,11 @@ export class Technicians {
 
     @Column({ type: "bigint" })
     cpf: number
-
-    @Column({ type: "int" })
-    cep:  number
-
-    @Column({ type: "varchar" })
-    logradouro:  string
-
-    @Column({ type: "int" })
-    numero:  number
-
-    @Column({ type: "varchar" })
-    complemento:  string
-
-    @Column({ type: "varchar" })
-    bairro:  string
-
-    @Column({ type: "varchar" })
-    cidade:  string
-
-    @Column({ type: "varchar" })
-    uf:  string
-
-    @Column({ type: "varchar" })
-    fone_contato:  string
-
+   
+    @OneToMany(() => Addresstech, (addressTech) => addressTech.techAd, { 
+        cascade: true,
+        eager: true,
+    })
+    techAd: Addresstech[]
+    
 }
