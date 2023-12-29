@@ -35,10 +35,10 @@ export class Addresstech {
     @Column({ type: "varchar" })
     fone_contato:  string
 
-    @ManyToOne(() => Technicians, (techAddress) => techAddress.techAd, {
+    @ManyToOne(() => Technicians, (techAddress) => techAddress.techAd, { 
         onDelete: 'CASCADE',
     })
-    techAd: Technicians
+    techAd: Technicians;
 
    
 }

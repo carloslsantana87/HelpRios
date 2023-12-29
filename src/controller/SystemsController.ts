@@ -49,9 +49,9 @@ export class SystemsController {
         findSystem.nome = nome;
         findSystem.descricao = descricao;
 
-        await this.SystemsRepository.save(findSystem);
+        await this.SystemsRepository.update(id, findSystem);
 
-        return "Registro atualizado com sucesso!";
+        return "Sistema atualizado com sucesso!";
 
     }
 
