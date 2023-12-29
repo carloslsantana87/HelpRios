@@ -18,6 +18,11 @@ export const Routes = [{
     controller: ClientController,
     action: "create"
 }, {
+    method: "put",
+    route: "/client",
+    controller: ClientController,
+    action: "update"
+},{
     method: "delete",
     route: "/client/:id",
     controller: ClientController,
