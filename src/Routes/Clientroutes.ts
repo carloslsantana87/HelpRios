@@ -17,6 +17,7 @@ export const Routes = [{
     route: "/client",
     controller: ClientController,
     action: "create"
+    
 }, {
     method: "put",
     route: "/client/:id",
