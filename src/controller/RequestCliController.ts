@@ -5,8 +5,6 @@ import { Requests_clients } from '../Models/Requests_clients';
 import { Request_items } from '../Models/Request_items';
 
 
-
-
 export class RequestCliController {
 
     private Request_ClientsRepository = AppDataSource.getRepository(Requests_clients)
@@ -43,7 +41,8 @@ export class RequestCliController {
             requisItem,
         })
 
-        return this.Request_ClientsRepository.save(requests)
+        return this.Request_ClientsRepository.save(requests);
+       
     }
 
     async update(request: Request, response: Response, next: NextFunction) {
