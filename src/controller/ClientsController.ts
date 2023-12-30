@@ -1,9 +1,7 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
-
-
-
+import * as nodemailer from 'nodemailer';
 
 export class ClientController {
 
@@ -28,9 +26,10 @@ export class ClientController {
     }
 
     async create(request: Request, response: Response, next: NextFunction) {
-        const { tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd} = request.body;
+        const { id,tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd} = request.body;
 
         const client = Object.assign(new Client(), {
+            id,
             tipo, 
             cpf, 
             cnpj, 
@@ -46,8 +45,40 @@ export class ClientController {
             clisystem,   
         })
 
-        return this.ClientRepository.save(client)
-    }
+        var transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            porta: 587,
+            secure: true,
+            auth: {
+                user: "fapsoftexprojetohelpdesk@gmail.com",
+                pass: "spis kzmj okuw hohr"
+            }
+        });
+
+        transporter.sendMail({
+            from: "Info Rio - HelpRio <fapsoftexprojetohelpdesk@gmail.com>",
+            to: email,
+            subject: "Cadastro de Cliente - Info Rio",
+            text: `Você fez o seu cadastro na Info RIo.
+                   Seus dados foram cadastrados:  
+                   Tipo: ${tipo}
+                   Numero do cliente: ${id}
+                   Nome do cliente: ${nome_razao}
+                   cpf: ${cpf}
+                   cnpj:${cnpj}
+                   Endereço: ${clientAd}
+                   Sistemas Contratados: ${clisystem}`
+        }).then(message => {
+            console.log(message)
+        }).catch(err => {
+            console.log(err);
+        });
+
+        return this.ClientRepository.save(client);
+        //await this.ClientRepository.save(client);
+
+    };
+
 
     async update(request: Request, response: Response, next: NextFunction) {
         const id = parseInt(request.params.id);
