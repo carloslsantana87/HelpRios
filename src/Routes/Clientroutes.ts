@@ -19,7 +19,7 @@ export const Routes = [{
     action: "create"
 }, {
     method: "put",
-    route: "/client",
+    route: "/client/:id",
     controller: ClientController,
     action: "update"
 },{
