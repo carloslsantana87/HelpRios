@@ -1,6 +1,7 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
+import { Client } from '../';
 import * as nodemailer from 'nodemailer';
 
 export class ClientController {
@@ -44,16 +45,6 @@ export class ClientController {
             clientAd,
             clisystem,   
         })
-
-        var transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            porta: 587,
-            secure: true,
-            auth: {
-                user: "fapsoftexprojetohelpdesk@gmail.com",
-                pass: "spis kzmj okuw hohr"
-            }
-        });
 
         transporter.sendMail({
             from: "Info Rio - HelpRio <fapsoftexprojetohelpdesk@gmail.com>",
