@@ -1,8 +1,9 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
-import { Client } from '../';
-import * as nodemailer from 'nodemailer';
+
+import { transporter } from '../email/email'
+
 
 export class ClientController {
 
@@ -27,7 +28,7 @@ export class ClientController {
     }
 
     async create(request: Request, response: Response, next: NextFunction) {
-        const { id,tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd} = request.body;
+        const { id,tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd, cep} = request.body;
 
         const client = Object.assign(new Client(), {
             id,
@@ -57,8 +58,8 @@ export class ClientController {
                    Nome do cliente: ${nome_razao}
                    cpf: ${cpf}
                    cnpj:${cnpj}
-                   Endereço: ${clientAd}
-                   Sistemas Contratados: ${clisystem}`
+                   Endereço: ${cep}
+                   Sistemas Contratados:`
         }).then(message => {
             console.log(message)
         }).catch(err => {
