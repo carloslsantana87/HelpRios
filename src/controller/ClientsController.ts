@@ -1,14 +1,7 @@
 import { AppDataSource } from "../db/data-source"
 import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
-
 import { transporter } from '../email/email'
-import bodyParser from "body-parser";
-import { listenerCount } from "process";
-import { Column, DataSource } from 'typeorm';
-import { CharacterEncoding } from 'crypto';
-
-
 export class ClientController {
 
     private ClientRepository = AppDataSource.getRepository(Client)
@@ -51,7 +44,6 @@ export class ClientController {
             clisystem,
         })
 
-   
         transporter.sendMail({
         from: "Info Rio - HelpRio <fapsoftexprojetohelpdesk@gmail.com>",
         to: email,
@@ -73,12 +65,6 @@ export class ClientController {
         });
         
         return this.ClientRepository.save(client);
-       
-
-        
-
-
-
     };
 
 
