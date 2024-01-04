@@ -4,6 +4,9 @@ import { Client } from '../Models/Client';
 
 import { transporter } from '../email/email'
 import bodyParser from "body-parser";
+import { listenerCount } from "process";
+import { Column, DataSource } from 'typeorm';
+import { CharacterEncoding } from 'crypto';
 
 
 export class ClientController {
@@ -29,46 +32,52 @@ export class ClientController {
     }
 
     async create(request: Request, response: Response, next: NextFunction) {
-        const { id,tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd, cep} = request.body;
+        const { id, tipo, cpf, cnpj, email, nome_razao, nome_responsavel, fone_responsavel, nome_contato_1, fone_contato_1, nome_contato_2, fone_contato_2, clisystem, clientAd } = request.body;
 
         const client = Object.assign(new Client(), {
             id,
-            tipo, 
-            cpf, 
-            cnpj, 
-            nome_razao, 
-            email, 
-            nome_responsavel,     
-            fone_responsavel, 
-            nome_contato_1, 
-            fone_contato_1,     
-            nome_contato_2,     
+            tipo,
+            cpf,
+            cnpj,
+            nome_razao,
+            email,
+            nome_responsavel,
+            fone_responsavel,
+            nome_contato_1,
+            fone_contato_1,
+            nome_contato_2,
             fone_contato_2,
             clientAd,
-            clisystem,   
+            clisystem,
         })
 
+   
         transporter.sendMail({
-            from: "Info Rio - HelpRio <fapsoftexprojetohelpdesk@gmail.com>",
-            to: email,
-            subject: "Cadastro de Cliente - Info Rio",
-            text: `Você fez o seu cadastro na Info RIo.
-                   Seus dados foram cadastrados:  
-                   Tipo: ${tipo}
-                   Numero do cliente: ${id}
-                   Nome do cliente: ${nome_razao}
-                   cpf: ${cpf}
-                   cnpj:${cnpj}
-                   Endereço: 
-                   Sistemas Contratados:`
+        from: "Info Rio - HelpRio <fapsoftexprojetohelpdesk@gmail.com>",
+        to: email,
+        subject: "Cadastro de Cliente - Info Rio",
+        text: `Você fez o seu cadastro na Info RIo.
+              Seus dados foram cadastrados:  
+              Tipo: ${tipo}
+              Numero do cliente: ${client.id}
+              Nome do cliente: ${nome_razao}
+              cpf: ${cpf}
+              Endereço: 
+              ${JSON.stringify(clientAd, null, 2).split('\n').map(line => '' + line).join('\n')}\n
+              Sistemas Contratados:
+              ${JSON.stringify(clisystem, null, 2).split('\n').map(line => '' + line).join('\n')}\n`
         }).then(message => {
             console.log(message)
         }).catch(err => {
             console.log(err);
         });
-
+        
         return this.ClientRepository.save(client);
-        //await this.ClientRepository.save(client);
+       
+
+        
+
+
 
     };
 
@@ -84,14 +93,14 @@ export class ClientController {
             return "Cliente não encontrado!";
         }
 
-        const CliSytemAd = Object.assign(findClient, clisystem, clientAd  )
+        const CliSytemAd = Object.assign(findClient, clisystem, clientAd)
 
         CliSytemAd.tipo = tipo;
         CliSytemAd.cpf = cpf;
         CliSytemAd.cnpj = cnpj;
         CliSytemAd.nome_razao = nome_razao;
         CliSytemAd.email = email;
-        CliSytemAd.nome_responsavel = nome_responsavel; 
+        CliSytemAd.nome_responsavel = nome_responsavel;
         CliSytemAd.fone_responsavel = fone_responsavel;
         CliSytemAd.nome_contato_1 = nome_contato_1;
         CliSytemAd.fone_contato_1 = fone_contato_1;
