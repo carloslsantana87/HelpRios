@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express"
 import { Client } from '../Models/Client';
 
 import { transporter } from '../email/email'
+import bodyParser from "body-parser";
 
 
 export class ClientController {
@@ -58,7 +59,7 @@ export class ClientController {
                    Nome do cliente: ${nome_razao}
                    cpf: ${cpf}
                    cnpj:${cnpj}
-                   Endereço: ${cep}
+                   Endereço: 
                    Sistemas Contratados:`
         }).then(message => {
             console.log(message)
