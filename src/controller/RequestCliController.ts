@@ -2,7 +2,7 @@ import { AppDataSource } from "../db/data-source";
 import { NextFunction, Request, Response } from "express";
 import "reflect-metadata";
 import { Requests_clients } from '../Models/Requests_clients';
-import { transporter } from '../email/email'
+import { transporter } from '../email/email';
 
 export class RequestCliController {
 
@@ -45,8 +45,8 @@ export class RequestCliController {
                 from: "Info Rio - HelpRio <fapsoftexprojetohelpdesk@gmail.com>",
                 to: email,
                 subject: "Registro de abertura de Chamado - Info Rio",
-                text: `Você fez o seu cadastro na Info RIo.
-                  Seus dados foram cadastrados:  
+                text: `Seu chamado foi aberto com as seguintes informações:
+                 
                   Nº do Chamado: ${requests.id}
                   Nº do Cliente: ${id_client}
                   Data abertura: ${data_abertura}
@@ -62,7 +62,7 @@ export class RequestCliController {
 
         } catch (error) {
 
-            response.status(500).json({ error: 'Erro ao fazer a inclusão' });
+            response.status(500).json({ error: 'Erro interno durante a inclusão!' });
 
         }
     }
@@ -92,7 +92,7 @@ export class RequestCliController {
 
         } catch (error) {
 
-            response.status(500).json({ error: 'Erro ao atualizar a requisição!' });
+            response.status(500).json({ error: 'Erro interno durante a atualização!' });
 
         }
     }
@@ -115,7 +115,7 @@ export class RequestCliController {
             return "A requisição foi excluída!!!"
 
         } catch (error) {
-            
+
             return response.status(500).json({ error: 'Erro interno durante a exclusão' });
         }
 
